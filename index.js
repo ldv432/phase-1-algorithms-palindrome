@@ -1,10 +1,7 @@
 function isPalindrome(word) {
 for (let i = 0; i < word.length/2; i++){
   const j = word.length - 1 - i;
-  const startChar = word[i];
-  const endChar = word[j];
-  if (startChar !== endChar);
-  return false
+  if (word[i] !== word[j]) return false
 }
 return true
 }
@@ -20,21 +17,29 @@ return true
   Add written explanation of your solution here
 We created a for loop to interate from the beginning to halfway through a word,
 we then created a new variable j to start from the end of a word to work backwards to the middle.
-we then created variables startChar/endChar to track each letter as we pass through the loop.
+we then tracked each letter from front to middle and back to middle with word[i] and word[j]
 we then made an if statement that said if they're not exactly equal, return false otherwise return true!
 */
 
 // You can run `node index.js` to view these console logs
 if (require.main === module) {
   // add your own custom tests in here
+
   console.log("Expecting: true");
   console.log("=>", isPalindrome("racecar"));
 
   console.log("Expecting: true");
-  console.log("=>", isPalindrome("goog"));
+  console.log("=>", isPalindrome("abba"));
+
+  console.log("Expecting: true");
+  console.log("=>", isPalindrome("a"));
+
 
   console.log("Expecting: false");
   console.log("=>", isPalindrome("robot"));
+
+  console.log("Expecting: false");
+  console.log("=>", isPalindrome("ab"));
 }
 
 module.exports = isPalindrome;
